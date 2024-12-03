@@ -209,7 +209,7 @@ class DatabaseQueries {
         F AS
         (SELECT student_id, count (student_id)
         FROM poll_responses
-        GROUP BY student_id),
+        GROUP BY (student_id, option_id),
         G AS
         (SELECT distinct on (user_id) user_id, time_in
         FROM queue
